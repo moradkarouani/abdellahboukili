@@ -1,0 +1,4 @@
+(()=>{const button=document.getElementById('hamb'),nav=document.getElementById('nav');if(button&&nav){button.addEventListener('click',()=>{nav.classList.toggle('open');button.setAttribute('aria-expanded',nav.classList.contains('open')?'true':'false');});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));}document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}}));})();
+
+// V50: fallback navigation for the Silky contact button (works with local preview and hosting).
+document.addEventListener('click',function(e){const link=e.target.closest('.silky-contact-link');if(!link)return;e.preventDefault();window.location.assign(new URL('./contact.html',document.baseURI).href);});
